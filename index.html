@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Employees Portal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="loadingScreen">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+
+    <button id="panda-mascot-toggle" title="Click to chat with Panda! 🐼">
+      <img src="assets/red-panda3-Photoroom.png" alt="Red Panda" />
+    </button>
+
+    <div id="panda-chat-container" style="display: none">
+      <div id="panda-chat-header">
+        <h3>Panda Assistant</h3>
+        <button id="close-chat-button">&times;</button>
+      </div>
+      <div id="panda-messages-display">
+        <div class="panda-message-bubble assistant-message">
+          Hello! How can I assist you today? 🐾
+        </div>
+      </div>
+      <div id="loading-indicator" style="display: none">
+        <div class="spinner-small"></div>
+        <p>Panda is thinking...</p>
+      </div>
+      <div id="panda-input-area">
+        <input type="text" id="userInput" placeholder="Ask me anything..." />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+
+    <div id="mainContent" style="display: none">
+      <header class="main-header">
+        <nav class="navbar">
+          <a href="#" class="logo">TeamSphere</a>
+          <ul class="nav-links" style="display: none">
+            <li><a href="#">About Us</a></li>
+          </ul>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </header>
+
+      <div class="employee-portal-layout">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>Office Employees</h2>
+            <button class="btn-sidebar-action">New Request</button>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <a href="#dashboard" class="active"
+                  ><i class="fas fa-th-large"></i> Dashboard</a
+                >
+              </li>
+              <li>
+                <a href="#calendar"
+                  ><i class="fas fa-calendar-alt"></i> Meet & Greets</a
+                >
+              </li>
+              <li>
+                <a href="#planner"
+                  ><i class="fas fa-clipboard-list"></i> Planner</a
+                >
+              </li>
+              <li>
+                <a href="#tasks"><i class="fas fa-tasks"></i> Tasks</a>
+              </li>
+              <li>
+                <a href="#employees"><i class="fas fa-users"></i> Employees</a>
+              </li>
+              <li>
+                <a href="#clubs"><i class="fas fa-handshake"></i> Clubs</a>
+              </li>
+              <li class="active">
+                <a href="#discussion-forum"
+                  ><i class="fas fa-comments"></i> Discussion Forum</a
+                >
+              </li>
+              <li>
+                <a href="#market"><i class="fas fa-store"></i> Market</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="sidebar-footer">
+            <p>&copy; 2025 Company Name</p>
+          </div>
+        </aside>
+
+        <main class="dashboard-content">
+          <div id="dashboard" class="dashboard-card welcome-card">
+            <h3><i class="fas fa-star"></i> Welcome Back!</h3>
+            <p>Here's a quick overview of your day.</p>
+          </div>
+
+          <div id="calendar" class="dashboard-card calendar-card">
+            <h3><i class="fas fa-calendar-alt"></i> Meet & Greets</h3>
+            <div class="calendar-grid">
+              <div class="month-nav">
+                <button id="prevMonth">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="currentMonthYear"></span>
+                <button id="nextMonth">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="days-of-week">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span
+                ><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+              <div id="datesGrid" class="dates-grid"></div>
+            </div>
+          </div>
+
+          <div id="announcements" class="dashboard-card announcements-card">
+            <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+            <ul class="announcement-list">
+              <li>
+                <span>New Project Kick-off Meeting</span>
+                <button class="btn-view">View</button>
+              </li>
+              <li>
+                <span>Employee Feedback Survey</span>
+                <button class="btn-view">View</button>
+              </li>
+              <li>
+                <span>Office Renovation Updates</span>
+                <button class="btn-view">View</button>
+              </li>
+              <li>
+                <span>Company Picnic Date Confirmed</span>
+                <button class="btn-view">View</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="planner" class="dashboard-card planner-card">
+            <h3><i class="fas fa-clipboard-check"></i> Planner</h3>
+            <ol class="planner-list">
+              <li>Finalize Q3 Report</li>
+              <li>Prepare for Client Presentation</li>
+              <li>Review Marketing Campaign Draft</li>
+              <li>Complete Online Training Module</li>
+              <li>Schedule 1:1 with Team Lead</li>
+            </ol>
+          </div>
+
+          <div id="clubs" class="dashboard-card employee-clubs-card">
+            <h3><i class="fas fa-handshake"></i> Employee Clubs</h3>
+            <div class="club-grid">
+              <div class="club-item"><i class="fas fa-book"></i> Book Club</div>
+              <div class="club-item">
+                <i class="fas fa-palette"></i> Art Collective
+              </div>
+              <div class="club-item">
+                <i class="fas fa-dumbbell"></i> Fitness Group
+              </div>
+              <div class="club-item">
+                <i class="fas fa-gamepad"></i> Gaming Guild
+              </div>
+            </div>
+          </div>
+
+          <div id="employees" class="dashboard-card employee-directory-card">
+            <h3><i class="fas fa-users"></i> Employees Directory</h3>
+            <div class="employee-grid">
+              <div class="employee-avatar-card">
+                <img src="assets/Ayse.PNG" alt="Ayşe Yılmaz" />
+                <span>Ayşe Yılmaz</span>
+              </div>
+              <div class="employee-avatar-card">
+                <img src="assets/Mehmet.PNG" alt="Mehmet Can" />
+                <span>Mehmet Can</span>
+              </div>
+              <div class="employee-avatar-card">
+                <img src="assets/Zeynep.PNG" alt="Zeynep Şahin" />
+                <span>Zeynep Şahin</span>
+              </div>
+              <div class="employee-avatar-card">
+                <img src="assets/Emre.PNG" alt="Emre Güneş" />
+                <span>Emre Güneş</span>
+              </div>
+              <div class="employee-avatar-card">
+                <img src="assets/Okan.PNG" alt="Okan Gürbüz" />
+                <span>Okan Gürbüz</span>
+              </div>
+              <div class="employee-avatar-card">
+                <img src="assets/Deniz.PNG" alt="Deniz Toprak" />
+                <span>Deniz Toprak</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="tasks" class="dashboard-card task-assignment-card">
+            <h3><i class="fas fa-tasks"></i> Task Assignment</h3>
+            <form class="task-form">
+              <label for="task-name">Task Name:</label>
+              <input type="text" id="task-name" placeholder="Enter task name" />
+
+              <label for="assignee">Assignee:</label>
+              <select id="assignee">
+                <option value="">Select an employee</option>
+                <option value="ayse">Ayşe Yılmaz</option>
+                <option value="mehmet">Mehmet Can</option>
+                <option value="zeynep">Zeynep Şahin</option>
+              </select>
+
+              <label for="due-date">Due Date:</label>
+              <input type="date" id="due-date" />
+
+              <button type="submit" class="btn-primary">Assign Task</button>
+            </form>
+          </div>
+
+          <div id="projects" class="dashboard-card project-list-card">
+            <h3><i class="fas fa-project-diagram"></i> Active Projects</h3>
+            <ul class="project-list">
+              <li>
+                <div class="project-info">
+                  <span>Supply Chain Optimization</span>
+                  <span class="project-status in-progress">In Progress</span>
+                </div>
+                <div class="project-progress">
+                  <div class="progress-bar" style="width: 75%"></div>
+                </div>
+              </li>
+              <li>
+                <div class="project-info">
+                  <span>New Product Launch Campaign</span>
+                  <span class="project-status">Planning</span>
+                </div>
+                <div class="project-progress">
+                  <div class="progress-bar" style="width: 30%"></div>
+                </div>
+              </li>
+              <li>
+                <div class="project-info">
+                  <span>Website Redesign</span>
+                  <span class="project-status completed">Completed</span>
+                </div>
+                <div class="project-progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+  <div class="dashboard-card discussion-forum-card">
+    <h3><i class="fas fa-comments"></i> Tartışma Forumu</h3>
+    <div class="discussion-posts-container">
+      <div class="discussion-post">
+        <div class="discussion-post-header">
+          <strong>Ayşe Yılmaz</strong>
+          <span>2 gün önce</span>
+        </div>
+        <p class="discussion-post-content">
+          Çalışma ortamımızda sürdürülebilirlik uygulamalarını nasıl daha da
+          iyileştirebiliriz? Fikirlerinizi bekliyorum!
+        </p>
+        <div class="discussion-post-actions">
+          <button><i class="fas fa-reply"></i> Yanıtla</button>
+          <button><i class="fas fa-thumbs-up"></i> 12</button>
+        </div>
+      </div>
+
+      <div class="discussion-post">
+        <div class="discussion-post-header">
+          <strong>Mehmet Demir</strong>
+          <span>1 gün önce</span>
+        </div>
+        <p class="discussion-post-content">
+          Ofiste tek kullanımlık plastik kullanımını azaltmak için su
+          sebillerinin yanına yeniden kullanılabilir bardak otomatları
+          koyabiliriz.
+        </p>
+        <div class="discussion-post-actions">
+          <button><i class="fas fa-reply"></i> Yanıtla</button>
+          <button><i class="fas fa-thumbs-up"></i> 8</button>
+        </div>
+      </div>
+
+      <div class="discussion-post">
+        <div class="discussion-post-header">
+          <strong>Zeynep Can</strong>
+          <span>Bugün</span>
+        </div>
+        <p class="discussion-post-content">
+          Enerji tasarrufu için bilgisayarları ve ışıkları mesai bitiminde
+          kapatma alışkanlığını yaygınlaştırabiliriz.
+        </p>
+        <div class="discussion-post-actions">
+          <button><i class="fas fa-reply"></i> Yanıtla</button>
+          <button><i class="fas fa-thumbs-up"></i> 5</button>
+        </div>
+      </div>
+      </div>
+
+    <div class="new-post-area">
+      <h4>Yeni Gönderi Oluştur</h4>
+      <textarea
+        placeholder="Düşüncelerinizi buraya yazın..."
+      ></textarea>
+      <button>Gönder</button>
+    </div>
+  </div>
+
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <footer class="main-footer">
+        <div class="container">
+          <p>&copy; 2025 Company Name. All Rights Reserved.</p>
+          <div class="social-links">
+            <a href="#"
+              ><img
+                src="https://placehold.co/30x30/E0F2F7/000000?text=LI"
+                alt="LinkedIn"
+            /></a>
+          </div>
+        </div>
+      </footer>
+
+      <script src="script.js" defer></script>
+    </div>
+  </body>
+</html>
